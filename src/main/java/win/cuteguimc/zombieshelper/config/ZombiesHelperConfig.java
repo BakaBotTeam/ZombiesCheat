@@ -25,29 +25,6 @@ public class ZombiesHelperConfig extends Config {
     public static OneKeyBind toggleBlockUseEntityKeyBind = new OneKeyBind(UKeyboard.KEY_LEFT);
 
     @Switch(
-            name = "Aim Bot",
-            description = "Auto Aim"
-    )
-    public static boolean aimBot = false;
-
-    @KeyBind(
-            name = "Toggle Aim Bot"
-    )
-    public static OneKeyBind toggleAimBotKeybind = new OneKeyBind(UKeyboard.KEY_V);
-
-    @Slider(
-            name = "Turn Speed",
-            min = 0.1f, max = 50f
-    )
-    public static float turnSpeed = 1.5f;
-
-    @Slider(
-            name = "Predict",
-            min = 0f, max = 10f
-    )
-    public static float predict = 0.5f;
-
-    @Switch(
             name = "Auto Revive",
             description = "Automatically revives players"
     )
@@ -91,10 +68,6 @@ public class ZombiesHelperConfig extends Config {
         registerKeyBind(toggleBlockUseEntityKeyBind, () -> {
             blockUseEntity = !blockUseEntity;
             Notifications.INSTANCE.send("Zombies Helper", "Block UseEntity -> " + (blockUseEntity?"On":"Off"));
-        });
-        registerKeyBind(toggleAimBotKeybind, () -> {
-            aimBot = !aimBot;
-            Notifications.INSTANCE.send("Zombies Helper", "Aim Bot -> " + (aimBot?"On":"Off"));
         });
         initialize();
     }

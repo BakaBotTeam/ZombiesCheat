@@ -54,7 +54,7 @@ public class AutoReviveListener {
                 continue;
             }
 
-            List<Entity> nearbyEntities = loadedEntities.stream().filter(e -> e.getDistanceToEntity(player) < 20).sorted(Comparator.comparingDouble(e -> e.getDistanceToEntity(player))).collect(Collectors.toList());
+            List<Entity> nearbyEntities = loadedEntities.stream().filter(e -> e.getDistanceToEntity(player) < 6.5).sorted(Comparator.comparingDouble(e -> e.getDistanceToEntity(player))).collect(Collectors.toList());
             boolean isAbleToRevive = false;
             for (Entity e : nearbyEntities) {
                 if (e.getDisplayName() != null || e.getName() != null) {
@@ -99,6 +99,8 @@ public class AutoReviveListener {
             String tips = "" + EnumChatFormatting.BOLD + EnumChatFormatting.GOLD + "[WARNING] " + EnumChatFormatting.RESET +
                     EnumChatFormatting.BOLD + "Found new reviveable player" + (newReviveableCount > 1 ? "s" : "") + " (" + newReviveableCount + ").";
             mc.thePlayer.addChatMessage(new ChatComponentText(tips));
+            // play sound (anvil fall to ground)
+            mc.thePlayer.playSound("random.anvil_land", 1.0F, 1.0F);
         }
     }
 
