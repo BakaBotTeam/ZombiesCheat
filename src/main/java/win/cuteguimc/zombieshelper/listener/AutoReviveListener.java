@@ -71,10 +71,7 @@ public class AutoReviveListener {
                 reviveablePlayers.add(player);
             }
 
-            if (mc.thePlayer.getDistanceToEntity(player) > 5) continue;
-            if (clickedPlayers.containsKey(player.getEntityId()) && clickedPlayers.get(player.getEntityId()) >= 10) {
-                continue;
-            }
+            if (mc.thePlayer.getDistanceToEntity(player) > 4.5) continue;
 
             if (!clickedPlayers.containsKey(player.getEntityId())) {
                 clickedPlayers.put(player.getEntityId(), 0);

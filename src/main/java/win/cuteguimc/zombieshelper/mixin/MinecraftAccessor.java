@@ -16,6 +16,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
  */
 @Mixin(Minecraft.class)
 public interface MinecraftAccessor {
+    @Accessor("rightClickDelayTimer")
+    int getRightClickDelayTimer();
+    @Accessor("rightClickDelayTimer")
+    void setRightClickDelayTimer(int value);
     @Accessor Timer getTimer();
+    @Invoker("rightClickMouse")
+    void invokeRightClickMouse();
     @Invoker("getRenderManager") RenderManager invokeGetRenderManager();
 }

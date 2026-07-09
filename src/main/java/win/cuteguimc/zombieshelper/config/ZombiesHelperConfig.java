@@ -25,6 +25,16 @@ public class ZombiesHelperConfig extends Config {
     public static OneKeyBind toggleBlockUseEntityKeyBind = new OneKeyBind(UKeyboard.KEY_LEFT);
 
     @Switch(
+            name = "Auto Switch"
+    )
+    public static boolean autoSwitch = false;
+
+    @KeyBind(
+            name = "Auto Switch Keybind"
+    )
+    public static OneKeyBind autoSwitchKeybind = new OneKeyBind(UKeyboard.KEY_NONE);
+
+    @Switch(
             name = "Auto Revive",
             description = "Automatically revives players"
     )
@@ -65,10 +75,6 @@ public class ZombiesHelperConfig extends Config {
 
     public ZombiesHelperConfig() {
         super(new Mod(ZombiesHelper.NAME, ModType.UTIL_QOL), ZombiesHelper.MODID + ".json");
-        registerKeyBind(toggleBlockUseEntityKeyBind, () -> {
-            blockUseEntity = !blockUseEntity;
-            Notifications.INSTANCE.send("Zombies Helper", "Block UseEntity -> " + (blockUseEntity?"On":"Off"));
-        });
         initialize();
     }
 }
